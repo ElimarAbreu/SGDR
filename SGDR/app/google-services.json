@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "43450338195",
+    "firebase_url": "https://sgdr-aa260.firebaseio.com",
+    "project_id": "sgdr-aa260",
+    "storage_bucket": "sgdr-aa260.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43450338195:android:e68e937a7737f186",
+        "android_client_info": {
+          "package_name": "com.example.sgdr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43450338195-l9k54s47an7rekhekt12mshkn027r1bj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sgdr",
+            "certificate_hash": "c88b1cc028ab5e663edefc85159716bb487b84cc"
+          }
+        },
+        {
+          "client_id": "43450338195-vt0peb3rhcm7s7noperbrubl34hp9qn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCxk4ZwIioibtngg3Kc5XQOK5QhwN07Zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43450338195-vt0peb3rhcm7s7noperbrubl34hp9qn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
