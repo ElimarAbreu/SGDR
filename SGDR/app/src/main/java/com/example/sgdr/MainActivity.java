@@ -11,6 +11,8 @@ import android.widget.ListView;
 
 import com.example.sgdr.modelo.Pessoa;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.UUID;
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         edtEmail = (EditText)findViewById(R.id.editEmail);
         edtNome = (EditText)findViewById(R.id.editNome);
-        listV_dados = (EditText)findViewById(R.id.listV_dados);
+        listV_dados = (ListView)findViewById(R.id.listV_dados);
 
         inicializarFirebase();
 
