@@ -8,7 +8,7 @@
     tools:context=".MainActivity_login">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_login_sgdr"
         android:layout_width="87dp"
         android:layout_height="44dp"
         android:text="SGDR"
@@ -21,9 +21,9 @@
         tools:layout_editor_absoluteY="48dp" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editText_login_email"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
         android:layout_marginTop="84dp"
         android:ems="10"
         android:hint="E-mail"
@@ -31,12 +31,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_login_sgdr" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editText_login_senha"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Senha"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_email" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_login_entrar"
         android:layout_width="130dp"
         android:layout_height="55dp"
         android:layout_marginTop="68dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_senha" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_login_cadastrar"
         android:layout_width="400dp"
         android:layout_height="55dp"
         android:layout_marginTop="108dp"
@@ -67,6 +67,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button_login_entrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

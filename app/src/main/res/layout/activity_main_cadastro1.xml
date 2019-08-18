@@ -7,7 +7,7 @@
     tools:context=".MainActivity_cadastro1">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView_cadastro1_cadast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/editText_cadastro1_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_cadastro1_cadast" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/editText_cadastro1_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_nome" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/editText_cadastro1_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -57,10 +57,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText10" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_usuario" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/editText_cadastro1_confirsenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -70,10 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText11" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_senha" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/editText_cadastro1_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -83,19 +83,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText12" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_confirsenha" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_cadastro1_republica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="República"
-        app:layout_constraintTop_toBottomOf="@+id/editText13"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_email"
         tools:layout_editor_absoluteX="37dp" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/editText_cadastro1_codigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -105,10 +105,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_cadastro1_republica" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_cadastro1_proximo"
         android:layout_width="130dp"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
@@ -116,6 +116,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText14" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_codigo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

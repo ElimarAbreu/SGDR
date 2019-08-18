@@ -4,48 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity_cadastrodespesa">
+    tools:context=".MainActivity_cadastrodespesa"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/textView_cadastrodesp_nova"
+        android:layout_width="136dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="28dp"
+        android:text="Nova Despesa"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/editText_cadastrodesp_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
+        android:hint="Nome da despesa"
         android:inputType="textPersonName"
-        android:text="Nome da Despesa"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_cadastrodesp_nova"
+        tools:layout_editor_absoluteX="65dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_cadastrodesp_tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Tipo de Despesa:"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="234dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastrodesp_nome"
+        tools:layout_editor_absoluteX="65dp" />
 
     <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/radioButton_cadastrodesp_fixa"
+        android:layout_width="65dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="40dp"
         android:text="Fixa"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="221dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastrodesp_nome"
+        tools:layout_editor_absoluteX="194dp" />
 
     <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/radioButton_cadastrodesp_nfixa"
+        android:layout_width="96dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="40dp"
         android:text="Não Fixa"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="221dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastrodesp_nome"
+        tools:layout_editor_absoluteX="271dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView_cadastrodesp_respons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nova Despesa"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginTop="40dp"
+        android:text="Responsável pelo pagamento:"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cadastrodesp_tipo"
+        tools:layout_editor_absoluteX="65dp" />
+
+    <Button
+        android:id="@+id/button_cadastrodesp_confirmar"
+        android:layout_width="130dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="216dp"
+        android:text="Confirmar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cadastrodesp_respons" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
