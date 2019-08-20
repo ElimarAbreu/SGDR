@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity_cadastro1">
+    tools:context=".MainActivity_cadastro1"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView_cadastro1_cadast"
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Nome"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Usuário"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,10 +95,12 @@
         android:id="@+id/textView_cadastro1_republica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="República"
-        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_email"
-        tools:layout_editor_absoluteX="37dp" />
+        android:layout_marginTop="16dp"
+        android:text="República:"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_cadastro1_republica"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_email" />
 
     <EditText
         android:id="@+id/editText_cadastro1_codigo"
@@ -100,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Código"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,12 +116,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_cadastro1_republica" />
 
+    <Spinner
+        android:id="@+id/spinner_cadastro1_republica"
+        android:layout_width="129dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView_cadastro1_republica"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cadastro1_email" />
+
     <Button
         android:id="@+id/button_cadastro1_proximo"
         android:layout_width="130dp"
-        android:layout_height="55dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:background="#0000FF"
         android:text="Próximo"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

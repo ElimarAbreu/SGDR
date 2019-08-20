@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">cm_sgdr</string>
+    <string name="app_name">sgdr</string>
     <string name="salve_me">Salve-me!</string>
+    <string-array name="menu">
+        <item>Nova</item>
+        <item>Existente</item>
+    </string-array>
 </resources>
