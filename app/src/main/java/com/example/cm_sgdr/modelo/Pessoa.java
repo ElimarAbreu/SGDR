@@ -4,6 +4,8 @@ public class Pessoa {
     private String uid;
     private String nome;
     private String email;
+    private String senha;
+
 
     public Pessoa() {
 
@@ -20,6 +22,11 @@ public class Pessoa {
     public String getEmail() {
         return email;
     }
+
+    public String getSenha() { return senha; }
+
+    public void setSenha(String senha) { this.senha = senha; }
+
 
     public void setUid(String uid) {
         this.uid = uid;

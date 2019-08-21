@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
             limparCampos();
         }
-
+        /*
         else if(id == R.id.menu_atualiza){
             Pessoa p = new Pessoa();
             p.setUid(pessoaSelecionada.getUid());
@@ -120,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
             limparCampos();
         }
+        */
         return true;
     }
 
