@@ -19,7 +19,7 @@ import static android.widget.Toast.makeText;
 
 public class MainActivity_cadastro1 extends AppCompatActivity {
 
-    EditText codigo, Nome, user, Senha, c_senha;
+    private EditText nome, usuario, senha, csenha, email, codigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +27,12 @@ public class MainActivity_cadastro1 extends AppCompatActivity {
         setContentView(R.layout.activity_main_cadastro1);
 
         Button proximo = (Button) findViewById(R.id.button_cadastro1_proximo);
-        Nome = (EditText) findViewById(R.id.editText_cadastro1_nome);
-        user = (EditText) findViewById(R.id.editText_cadastro1_usuario);
-        Senha = (EditText) findViewById(R.id.editText_cadastro1_senha);
-        c_senha = (EditText) findViewById(R.id.editText_cadastro1_confirsenha);
+        nome = (EditText) findViewById(R.id.editText_cadastro1_nome);
+        usuario = (EditText) findViewById(R.id.editText_cadastro1_usuario);
+        senha = (EditText) findViewById(R.id.editText_cadastro1_senha);
+        csenha = (EditText) findViewById(R.id.editText_cadastro1_confirsenha);
+        email = (EditText) findViewById(R.id.editText_cadastro1_email);
         codigo = (EditText) findViewById(R.id.editText_cadastro1_codigo);
-
-        codigo.setText("");
-        c_senha.setText("");
-        Senha.setText("");
-        user.setText("");
-        Nome.setText("");
 
         Spinner spinner_republica = (Spinner) findViewById(R.id.spinner_cadastro1_republica);
 
@@ -64,8 +59,8 @@ public class MainActivity_cadastro1 extends AppCompatActivity {
         proximo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if(codigo.toString().equals("") | Nome.toString().equals("") | user.toString().equals("") | Senha.toString().equals("") | c_senha.toString().equals("")){
-                    makeText(MainActivity_cadastro1.this, "Informações Incorretas", LENGTH_LONG).show();
+                if(nome.getText().toString().isEmpty() || usuario.getText().toString().isEmpty() || senha.getText().toString().isEmpty() || csenha.getText().toString().isEmpty() || email.getText().toString().isEmpty() || codigo.getText().toString().isEmpty()){
+                    makeText(MainActivity_cadastro1.this, "Preencha todos os campos!", LENGTH_LONG).show();
                 }
                 else {
                     Intent it = new Intent(MainActivity_cadastro1.this, MainActivity_cadastro2.class);
