@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.menu_novo){
             Pessoa p = new Pessoa();
-            p.setUid(UUID.randomUUID().toString());
+            //p.setUid(UUID.randomUUID().toString());
             p.setNome(edtNome.getText().toString());
             p.setEmail(edtEmail.getText().toString());
 
-            databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
+            //databaseReference.child("Pessoa").child(p.getUid()).setValue(p);
             limparCampos();
         }
         /*
