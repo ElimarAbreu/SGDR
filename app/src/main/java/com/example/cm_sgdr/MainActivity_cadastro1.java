@@ -64,9 +64,16 @@ public class MainActivity_cadastro1 extends AppCompatActivity {
                 }
                 else {
                     Intent it = new Intent(MainActivity_cadastro1.this, MainActivity_cadastro2.class);
+                    it.putExtra("nome", nome.getText().toString());
+                    it.putExtra("user", usuario.getText().toString());
+                    it.putExtra("senha", senha.getText().toString());
+                    it.putExtra("csenha", csenha.getText().toString());
+                    it.putExtra("email", email.getText().toString());
+                    it.putExtra("codigo", codigo.getText().toString());
                     startActivity(it);
                 }
             }
         });
+
     }
 }
