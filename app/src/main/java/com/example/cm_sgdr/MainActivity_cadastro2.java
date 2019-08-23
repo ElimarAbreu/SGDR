@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.cm_sgdr.modelo.Pessoa;
+import com.example.cm_sgdr.modelo.Republica;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -45,6 +46,7 @@ public class MainActivity_cadastro2 extends AppCompatActivity {
                     String senha = intent.getStringExtra("senha");
                     String email = intent.getStringExtra("email");
                     String codigo = intent.getStringExtra("codigo");
+                    String new_ = intent.getStringExtra("new");
 
                     Pessoa p = new Pessoa();
 
@@ -68,6 +70,14 @@ public class MainActivity_cadastro2 extends AppCompatActivity {
                     DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
                     raiz.child("Pessoa").push().setValue(p);
 
+                    //Criando a entidade Republica no bd
+
+                    if(new_.equals("new")) {
+                        Republica rep = new Republica();
+                        rep.setCodigo(p.getCod_republica());
+                        rep.setResponsavel(p.getEmail());
+                        raiz.child("Republica").push().setValue(rep);
+                    }
                     Intent it = new Intent(MainActivity_cadastro2.this, MainActivity_principal.class);
                     startActivity(it);
                 }
