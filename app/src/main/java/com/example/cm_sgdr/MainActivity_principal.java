@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,16 +21,16 @@ public class MainActivity_principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_principal);
 
-        List<Card> listCards = getAllCards();
+        List<Card_despesa> listCards = getAllCards();
         ListView listaDeDespesas = (ListView) findViewById(R.id.card);
         BaseAdapter adapter = new AdapterPersonalizado(listCards, this);
         listaDeDespesas.setAdapter(adapter);
     }
 
     public class AdapterPersonalizado extends BaseAdapter {
-        private final List<Card> cards;
+        private final List<Card_despesa> cards;
         private final Activity act;
-        public AdapterPersonalizado(List<Card> cards, Activity act) {
+        public AdapterPersonalizado(List<Card_despesa> cards, Activity act) {
             this.cards = cards;
             this.act = act;
         }
@@ -56,7 +55,7 @@ public class MainActivity_principal extends AppCompatActivity {
             ViewHolder holder;
 
             if (convertView == null) {
-                view = act.getLayoutInflater().inflate(R.layout.activity_card, parent, false);
+                view = act.getLayoutInflater().inflate(R.layout.activity_card_despesa, parent, false);
                 holder = new ViewHolder(view);
                 view.setTag(holder);
             } else {
@@ -64,7 +63,7 @@ public class MainActivity_principal extends AppCompatActivity {
                 holder = (ViewHolder) view.getTag();
             }
 
-            final Card card = cards.get(position);
+            final Card_despesa card = cards.get(position);
             //Colocando valores
             holder.despe.setText(card.getDespesa());
             holder.responsa.setText(card.getResponsavel());
@@ -111,11 +110,11 @@ public class MainActivity_principal extends AppCompatActivity {
 
     }
 
-    private List<Card> getAllCards() {
-        List<Card> cardtList = new ArrayList<Card>();
-        Card card;
+    private List<Card_despesa> getAllCards() {
+        List<Card_despesa> cardtList = new ArrayList<Card_despesa>();
+        Card_despesa card;
         // 1
-        card = new Card();
+        card = new Card_despesa();
         card.setDespesa("Internet");
         card.setResponsavel("Elimar");
         card.setRsatual("R$ Atual");
@@ -126,7 +125,7 @@ public class MainActivity_principal extends AppCompatActivity {
         card.setVrsanterior("R$ 150.00");
         cardtList.add(card);
         //2
-        card = new Card();
+        card = new Card_despesa();
         card.setDespesa("Água");
         card.setResponsavel("Adão");
         card.setRsatual("R$ Atual");
