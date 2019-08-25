@@ -48,7 +48,6 @@ public class MainActivity_login extends AppCompatActivity {
 
                 Query query1 = raiz.child("Pessoa");
 
-
                 query1.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
