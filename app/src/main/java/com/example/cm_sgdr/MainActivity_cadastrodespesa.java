@@ -82,6 +82,7 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
                 Log.v("MTA1", moradores.get(i));
             }
 
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

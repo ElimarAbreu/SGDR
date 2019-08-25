@@ -38,6 +38,7 @@ public class MainActivity_principal extends AppCompatActivity {
         listaDeDespesas.setAdapter(adapter);
     }
 
+
     public class AdapterPersonalizado extends BaseAdapter {
         private final List<Card> cards;
         private final Activity act;

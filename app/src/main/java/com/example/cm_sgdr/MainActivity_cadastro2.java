@@ -67,6 +67,7 @@ public class MainActivity_cadastro2 extends AppCompatActivity {
 
                     //Criando usuário no Banco
 
+
                     DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
                     raiz.child("Pessoa").push().setValue(p);
 

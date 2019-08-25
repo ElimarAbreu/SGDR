@@ -67,6 +67,7 @@ public class MainActivity_cadastro1 extends AppCompatActivity {
                 }
             }
 
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
