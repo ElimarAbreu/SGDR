@@ -1,6 +1,6 @@
 package com.example.cm_sgdr;
 
-public class Card {
+public class Card_despesa {
     private String despesa;
     private String responsavel;
     private String rsatual;
