@@ -73,6 +73,7 @@ public class MainActivity_cadastro2 extends AppCompatActivity {
 
                     //Criando a entidade Republica no bd
 
+
                     if(new_.equals("new")) {
                         Republica rep = new Republica();
                         rep.setCodigo(p.getCod_republica());

@@ -77,6 +77,7 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+
                 listPessoa.clear();
                 for(DataSnapshot objSnapshot:dataSnapshot.getChildren()){
                     Pessoa p = objSnapshot.getValue(Pessoa.class);

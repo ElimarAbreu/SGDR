@@ -79,6 +79,7 @@ public class MainActivity_cadastro1 extends AppCompatActivity {
                 if(nome.getText().toString().isEmpty() || usuario.getText().toString().isEmpty() || senha.getText().toString().isEmpty() || csenha.getText().toString().isEmpty() || email.getText().toString().isEmpty() || codigo.getText().toString().isEmpty())
                     makeText(MainActivity_cadastro1.this, "Preencha todos os campos!", LENGTH_LONG).show();
 
+
                 else {
                     ver = false;
 
