@@ -6,13 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.telephony.RadioAccessSpecifier;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.example.cm_sgdr.modelo.Conta;
 import com.example.cm_sgdr.modelo.Pessoa;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,36 +30,33 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
 public class MainActivity_cadastrodespesa extends AppCompatActivity {
 
     private List<String> moradores = new ArrayList<String>();
     private Spinner spinner_morador;
     private String responsavel = "1111111";
-    ListView listV_dados;
-
+    private ListView listV_dados;
     private List<String> listPessoa = new ArrayList<String>();
     private ArrayAdapter<String> arrayAdapterPessoa;
-
+    private DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
+    private String button_;
     Pessoa pessoaSelecionada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_cadastrodespesa);
+
         listV_dados = (ListView)findViewById(R.id.listV_dados);
+        final EditText nome_conta = findViewById(R.id.editText_cadastrodesp_nome);
+        RadioGroup radioGroup = findViewById(R.id.grup);
+        Button confirmar = findViewById(R.id.button_cadastrodesp_confirmar);
+        final RadioButton fixab = findViewById(R.id.radioButton_cadastrodesp_fixa);
+        final RadioButton nfixab = findViewById(R.id.radioButton_cadastrodesp_nfixa);
 
-
-        listV_dados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //adapterView.getChildAt(i).setBackgroundColor(Color.parseColor("#808080"));
-
-
-                pessoaSelecionada = (Pessoa)adapterView.getItemAtPosition(i);
-                responsavel = pessoaSelecionada.getNome();
-                Log.v("MTAa", responsavel);
-            }
-        });
 
         // Populando o spinner
         // Obtendo lista de moradores da republica
@@ -67,7 +70,7 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
         Log.v("MTAa","Cheguei!!!");
 
 
-        DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
+
         Query query1 = raiz.child("Pessoa").orderByChild("cod_republica").equalTo(codigo);
 
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -88,6 +91,68 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+        // Obtendo o responsável
+        listV_dados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //adapterView.getChildAt(i).setBackgroundColor(Color.parseColor("#808080"));
+
+                responsavel = (String)adapterView.getItemAtPosition(i);
+                Log.v("MTAa", responsavel);
+            }
+        });
+
+        // Obtendo o Tipo de Conta
+
+        /*
+        radioGroup.clearCheck();
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = group.findViewById(checkedId);
+                if (null != rb) {
+                    button_ = rb.getText().toString();
+                    //Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        */
+        // Adcionar conta no bd
+        // Criando intância de conta
+
+        confirmar.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
+                 if (fixab.isChecked()) {
+                     button_ = fixab.getText().toString();
+                 }
+                 else if(nfixab.isChecked()){
+                     button_ = nfixab.getText().toString();
+                 }
+
+                 if(codigo.isEmpty() || nome_conta.getText().toString().isEmpty() || responsavel.isEmpty() || button_.isEmpty()){
+                     makeText(MainActivity_cadastrodespesa.this, "Preencha todos os campos!", LENGTH_LONG).show();
+                 }
+                 else{
+                     Conta conta_ = new Conta();
+
+                     conta_.setCodigo_republica(codigo);
+                     conta_.setNome(nome_conta.getText().toString());
+                     conta_.setResponsavel(responsavel);
+                     conta_.setTipo(button_);
+
+                     raiz.child("Conta").push().setValue(conta_);
+
+                     Intent it = new Intent(MainActivity_cadastrodespesa.this, MainActivity_principal.class);
+                     startActivity(it);
+                 }
+             }
+         });
+
+
+    }
 
         /*
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, moradores);
@@ -111,7 +176,6 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
 
             }
         });
-        */
-
     }
+    */
 }
