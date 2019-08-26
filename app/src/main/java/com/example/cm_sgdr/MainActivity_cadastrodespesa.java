@@ -148,9 +148,9 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
                      conta_.setCodigo_conta(RandomStringUtils.random(8, "0123456789abcdef"));
 
                      raiz.child("Conta").push().setValue(conta_);
-                     raiz.child("Fatura").push();
 
-                     Intent it = new Intent(MainActivity_cadastrodespesa.this, MainActivity_principal.class);
+                     Intent it = new Intent(MainActivity_cadastrodespesa.this, MainActivity_gerenciardespfixa.class);
+                     it.putExtra("c_conta", conta_.getCodigo_conta());
                      startActivity(it);
                  }
              }

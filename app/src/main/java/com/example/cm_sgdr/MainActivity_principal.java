@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cm_sgdr.modelo.Conta;
+import com.example.cm_sgdr.modelo.Fatura;
 import com.example.cm_sgdr.modelo.Pessoa;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +37,10 @@ public class MainActivity_principal extends AppCompatActivity {
     private Query query1;
     private Query query2;
     private Conta conta_;
+    private List<Card_despesa> cardtList = new ArrayList<Card_despesa>();
+    private Card_despesa card1;
+    private Fatura fatura;
+
     private DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
 
 
@@ -135,26 +142,42 @@ public class MainActivity_principal extends AppCompatActivity {
     }
 
     private List<Card_despesa> getAllCards() {
-        List<Card_despesa> cardtList = new ArrayList<Card_despesa>();
-        Card_despesa card;
 
-
-        query1 = raiz.child("Conta").orderByChild("codigo_republica").equalTo(codigo);
+        query1 = raiz.child("Conta").orderByChild("codigo_republica");
 
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Conta conta_;
+
                 for(DataSnapshot objSnapshot:dataSnapshot.getChildren()) {
                     conta_ = objSnapshot.getValue(Conta.class);
-
+                    Log.v("MTAa",conta_.getNome());
+                    Log.v("MTAa",conta_.getResponsavel());
                     // Buscar Faturas
-                    query2 = raiz.child("Fatura").orderByChild(conta_.getCodigo_conta()).limitToFirst(1);
+                    query2 = raiz.child("Fatura").orderByChild("c_conta").equalTo(conta_.getCodigo_conta());
                     query2.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                            for(DataSnapshot objSnapshot:dataSnapshot.getChildren()) {
+                                fatura = objSnapshot.getValue(Fatura.class);
+
+                                Log.v("MTAa",fatura.getTotal());
+                                Log.v("MTAa",fatura.getData());
+
+                                card1 = new Card_despesa();
+                                card1.setDespesa(conta_.getNome());
+                                card1.setResponsavel(conta_.getResponsavel());
+                                card1.setRsatual("R$ Atual");
+                                card1.setVencimento("Vencimento");
+                                card1.setRsanterior("R$ Anterior");
+                                card1.setVrsatual("R$ " + fatura.getTotal());
+                                Log.v("MTAa","R$ " + fatura.getTotal());
+                                card1.setVvencimento(fatura.getData());
+                                card1.setVrsanterior("R$ -");
+                                cardtList.add(card1);
+                            }
                         }
 
                         @Override
@@ -171,30 +194,13 @@ public class MainActivity_principal extends AppCompatActivity {
             }
         });
 
-
-        // 1
-        card = new Card_despesa();
-        card.setDespesa("Internet");
-        card.setResponsavel("Elimar");
-        card.setRsatual("R$ Atual");
-        card.setVencimento("Vencimento");
-        card.setRsanterior("R$ Anterior");
-        card.setVrsatual("R$ 100.00");
-        card.setVvencimento("27/09/2019");
-        card.setVrsanterior("R$ 150.00");
-        cardtList.add(card);
-        //2
-        card = new Card_despesa();
-        card.setDespesa("Água");
-        card.setResponsavel("Adão");
-        card.setRsatual("R$ Atual");
-        card.setVencimento("Vencimento");
-        card.setRsanterior("R$ Anterior");
-        card.setVrsatual("R$ 100.00");
-        card.setVvencimento("25/09/2019");
-        card.setVrsanterior("R$ 120.00");
-        cardtList.add(card);
-
+        SystemClock.sleep(2000);
+        for(Card_despesa elem: cardtList){
+            Log.v("MTAa","INICIO");
+            Log.v("MTAa","R$ " + elem.getResponsavel());
+            Log.v("MTAa","R$ " + elem.getDespesa());
+        }
+        Log.v("MTAa",Integer.toString(cardtList.size()));
         return cardtList;
     }
 
