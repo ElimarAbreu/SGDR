@@ -3,13 +3,18 @@ package com.example.cm_sgdr;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.cm_sgdr.modelo.Pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +27,7 @@ public class MainActivity_principal extends AppCompatActivity {
         setContentView(R.layout.activity_main_principal);
 
         List<Card_despesa> listCards = getAllCards();
-        ListView listaDeDespesas = (ListView) findViewById(R.id.card);
+        ListView listaDeDespesas = (ListView) findViewById(R.id.card1);
         BaseAdapter adapter = new AdapterPersonalizado(listCards, this);
         listaDeDespesas.setAdapter(adapter);
     }
@@ -137,6 +142,27 @@ public class MainActivity_principal extends AppCompatActivity {
         cardtList.add(card);
 
         return cardtList;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id  = item.getItemId();
+
+        if(id == R.id.menu_novo){
+            Intent intent = getIntent();
+            String codigo = intent.getStringExtra("c_r");
+
+            Intent it = new Intent(MainActivity_principal.this, MainActivity_cadastrodespesa.class);
+            it.putExtra("c_r", codigo);
+            startActivity(it);
+        }
+        return true;
     }
 
 }
