@@ -97,20 +97,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_total"
         tools:layout_editor_absoluteX="215dp" />
 
-    <Button
-        android:id="@+id/button_gerenciardespfixa_defcon"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="80dp"
-        android:background="#0000FF"
-        android:text="Definir Consumo"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_data" />
 
     <Button
         android:id="@+id/button_gerenciardespfixa_confirmar"
@@ -125,6 +111,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_gerenciardespfixa_defcon" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
     private List<String> listPessoa = new ArrayList<String>();
     private ArrayAdapter<String> arrayAdapterPessoa;
     private DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
-    private String button_;
+    private String button_ = "Fixa";
     Pessoa pessoaSelecionada;
 
     @Override
@@ -52,7 +54,7 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
 
         listV_dados = (ListView)findViewById(R.id.listV_dados);
         final EditText nome_conta = findViewById(R.id.editText_cadastrodesp_nome);
-        RadioGroup radioGroup = findViewById(R.id.grup);
+
         Button confirmar = findViewById(R.id.button_cadastrodesp_confirmar);
         final RadioButton fixab = findViewById(R.id.radioButton_cadastrodesp_fixa);
         final RadioButton nfixab = findViewById(R.id.radioButton_cadastrodesp_nfixa);
@@ -143,8 +145,10 @@ public class MainActivity_cadastrodespesa extends AppCompatActivity {
                      conta_.setNome(nome_conta.getText().toString());
                      conta_.setResponsavel(responsavel);
                      conta_.setTipo(button_);
+                     conta_.setCodigo_conta(RandomStringUtils.random(8, "0123456789abcdef"));
 
                      raiz.child("Conta").push().setValue(conta_);
+                     raiz.child("Fatura").push();
 
                      Intent it = new Intent(MainActivity_cadastrodespesa.this, MainActivity_principal.class);
                      startActivity(it);

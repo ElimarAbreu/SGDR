@@ -44,13 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_cadastrodesp_nome"
         tools:layout_editor_absoluteX="65dp" />
 
-    
-    <RadioGroup
-        android:id="@+id/grup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cadastrodesp_tipo"
-        tools:layout_editor_absoluteX="194dp">
 
 
         <RadioButton
@@ -59,6 +52,8 @@
             android:layout_height="19dp"
             android:layout_marginTop="40dp"
             android:text="Fixa"
+            app:layout_constraintTop_toBottomOf="@+id/textView_cadastrodesp_tipo"
+            tools:layout_editor_absoluteX="194dp"
             />
 
         <RadioButton
@@ -67,9 +62,10 @@
             android:layout_height="17dp"
             android:layout_marginTop="40dp"
             android:text="Não Fixa"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton_cadastrodesp_fixa"
+            tools:layout_editor_absoluteX="194dp"
              />
 
-    </RadioGroup>
 
     <!--
     <Spinner
@@ -91,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Responsável pelo pagamento:"
-        app:layout_constraintTop_toBottomOf="@+id/grup"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton_cadastrodesp_nfixa"
         tools:layout_editor_absoluteX="65dp" />
 
     <ListView

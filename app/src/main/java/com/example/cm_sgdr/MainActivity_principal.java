@@ -1,5 +1,6 @@
 package com.example.cm_sgdr;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -14,17 +15,35 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cm_sgdr.modelo.Conta;
 import com.example.cm_sgdr.modelo.Pessoa;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity_principal extends AppCompatActivity {
 
+    private Intent intent;
+    private String codigo;
+    private Query query1;
+    private Query query2;
+    private Conta conta_;
+    private DatabaseReference raiz = FirebaseDatabase.getInstance().getReference();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_principal);
+
+        intent = getIntent();
+        codigo = intent.getStringExtra("c_r");
 
         List<Card_despesa> listCards = getAllCards();
         ListView listaDeDespesas = (ListView) findViewById(R.id.card1);
@@ -118,6 +137,41 @@ public class MainActivity_principal extends AppCompatActivity {
     private List<Card_despesa> getAllCards() {
         List<Card_despesa> cardtList = new ArrayList<Card_despesa>();
         Card_despesa card;
+
+
+        query1 = raiz.child("Conta").orderByChild("codigo_republica").equalTo(codigo);
+
+        query1.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Conta conta_;
+                for(DataSnapshot objSnapshot:dataSnapshot.getChildren()) {
+                    conta_ = objSnapshot.getValue(Conta.class);
+
+                    // Buscar Faturas
+                    query2 = raiz.child("Fatura").orderByChild(conta_.getCodigo_conta()).limitToFirst(1);
+                    query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         // 1
         card = new Card_despesa();
         card.setDespesa("Internet");
@@ -155,8 +209,7 @@ public class MainActivity_principal extends AppCompatActivity {
         int id  = item.getItemId();
 
         if(id == R.id.menu_novo){
-            Intent intent = getIntent();
-            String codigo = intent.getStringExtra("c_r");
+
 
             Intent it = new Intent(MainActivity_principal.this, MainActivity_cadastrodespesa.class);
             it.putExtra("c_r", codigo);
