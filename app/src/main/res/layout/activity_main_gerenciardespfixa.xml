@@ -25,91 +25,99 @@
         android:id="@+id/textView_gerenciardespfixa_mes"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="52dp"
         android:text="Mês referente:"
-        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_titulo"
-        tools:layout_editor_absoluteX="62dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_titulo" />
 
     <TextView
         android:id="@+id/textView_gerenciardespfixa_multa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="44dp"
         android:text="Valor da multa:"
-        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_mes"
-        tools:layout_editor_absoluteX="59dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_mes" />
 
     <TextView
         android:id="@+id/textView_gerenciardespfixa_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="44dp"
         android:text="Valor total:"
-        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_multa"
-        tools:layout_editor_absoluteX="62dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_multa" />
 
     <TextView
         android:id="@+id/textView_gerenciardespfixa_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
         android:text="Data de vencimento:"
-        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_total"
-        tools:layout_editor_absoluteX="62dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_total" />
 
     <EditText
         android:id="@+id/editText_gerenciardespfixa_mes"
         android:layout_width="160dp"
         android:layout_height="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_titulo"
-        tools:layout_editor_absoluteX="213dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView_gerenciardespfixa_mes"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gerenciardespfixa_titulo" />
 
     <EditText
         android:id="@+id/editText_gerenciardespfixa_multa"
         android:layout_width="161dp"
         android:layout_height="41dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_mes"
-        tools:layout_editor_absoluteX="214dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView_gerenciardespfixa_multa"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_mes" />
 
     <EditText
         android:id="@+id/editText_gerenciardespfixa_total"
         android:layout_width="164dp"
         android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_multa"
-        tools:layout_editor_absoluteX="213dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView_gerenciardespfixa_total"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_multa" />
 
     <EditText
         android:id="@+id/editText_gerenciardespfixa_data"
         android:layout_width="160dp"
         android:layout_height="43dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_total"
-        tools:layout_editor_absoluteX="215dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView_gerenciardespfixa_data"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_total" />
 
 
     <Button
         android:id="@+id/button_gerenciardespfixa_confirmar"
         android:layout_width="130dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="176dp"
         android:background="#0000FF"
         android:text="Confirmar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_gerenciardespfixa_data" />
 

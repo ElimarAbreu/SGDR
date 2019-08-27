@@ -68,7 +68,7 @@ public class MainActivity_login extends AppCompatActivity {
                                 alert("Login realizado com sucesso");
                                 Intent it = new Intent(MainActivity_login.this, MainActivity_principal.class);
 
-                                //it.putExtra("c_p", p.getEmail());
+                                it.putExtra("c_p", p.getEmail());
                                 it.putExtra("c_r", p.getCod_republica());
                                 verificar = false;
                                 startActivity(it);
